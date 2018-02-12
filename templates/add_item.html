@@ -1,0 +1,30 @@
+{% include "nav-bar.html" %}
+{% block content %}
+<br>
+<br>
+<br>
+<div class="Container">
+    <h1>Add new Item</h1>
+    <form action="{{url_for('add_item')}}" method = "post" class="padding-top-10">
+            <div class="form-group">
+                Item Title: <input type ="text" class="form-control" name="name">
+            </div>
+        <div class="form-group">
+                Item Description: <input type ="text" class="form-control" name="desc">
+            </div>
+        <div class="form-group">
+                <label for="category">All Categories :</label>
+                <select name="category">
+                {% for c in categories %}
+                    <option value="{{c.name}}">{{c.name}}</option>
+                {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <button type="submit" id="submit" class="btn btn-primary">Add Item</button>
+
+            </div>
+        </form>
+</div>
+
+{% endblock %}

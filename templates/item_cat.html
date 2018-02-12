@@ -1,0 +1,36 @@
+{% include "nav-bar.html" %}
+{% block content %}
+
+
+<!-- Page Content -->
+
+<br>
+<br>
+<br>
+    <div class="container">
+        <br>
+                <div class="thumbnail">
+
+                    <div class="caption-full">
+                        <h4>{{ item_catalog.name }}</h4>
+                        <p>{{ item_catalog.desc }}</p>
+
+                    </div>
+                    <a href="{{url_for('editCategoryItem',category_name=item_catalog.name, item_name = item_catalog.name)}}">Edit Item</a>
+                   <br>
+                    <br>
+                    <a href="{{url_for('deleteItems' , item_name=item_catalog.name)}}">Delete Item</a>
+
+                </div>
+
+
+
+
+        </div>
+        <!-- /.row -->
+
+    <!-- /.container -->
+
+<!-- /.section -->
+
+{% endblock %}

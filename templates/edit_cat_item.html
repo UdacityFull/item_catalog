@@ -1,0 +1,36 @@
+{% include "nav-bar.html" %}
+{% block content %}
+
+<section id="editItem" class="section">
+    <div class="section-content container padding-1-5">
+        <h1>Edit Item</h1>
+
+        <form action="{{url_for('editCategoryItem', category_name = item_catalog.category.name, item_name = item_catalog.name, item_id=item_catalog.id)}}" method = "post" class="padding-top-10">
+            <div class="form-group">
+                <label for="name">Item Title:</label>
+                <input type ="text" class="form-control" name="name" value="{{item_catalog.name}}">
+            </div>
+            <div class="form-group">
+                <label for="desc">Item Description:</label>
+                <textarea name="desc" class="form-control" maxlength="250" cols="30" rows="3">{{item_catalog.desc}}</textarea>
+            </div>
+
+
+
+            <div class="form-group">
+                <label for="category">Item Category:</label>
+                <select name="category">
+                {% for c in categories %}
+                    <option value="{{c.name}}" {% if c == item_catalog.category %} selected {% endif %}>{{c.name}}</option>
+                {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <button type="submit"  class="btn btn-primary">Edit Item</button>
+
+            </div>
+        </form>
+    </div>
+</section>
+
+{% endblock %}

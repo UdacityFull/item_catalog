@@ -1,0 +1,30 @@
+{% block content %}
+{% include "nav-bar.html" %}
+
+<!-- Page Content -->
+
+    <div class="container">
+
+        <div class="row">
+
+            {% include "categories.html" %}
+
+            <div class="col-md-9">
+                <h6 class="padding-bottom-26">Items (<strong>{{count}}</strong>)</h6>
+                {% for i in items %}
+                <div class="thumbnail text-center">
+
+                    <a href = "{{url_for('Item_appear', category_name = i.category.name, item_name = i.name)}}">
+                        <h4>{{ i.name }}</h4>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+
+        </div>
+        <!-- /.row -->
+    </div>
+
+<!-- /.section -->
+
+{% endblock %}

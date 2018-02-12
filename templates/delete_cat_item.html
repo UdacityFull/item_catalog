@@ -1,0 +1,6 @@
+<div class="container">
+  <div class="well well-lg">Are you sure you want to delete <b> {{ item_name }}</b>?</div>
+  <form action="{{ url_for('deleteItems', item_name=item_name)}}" method='post'>
+    <input class="btn btn-danger" type="submit" value='Confirm Deletion'>
+  </form>
+</div>

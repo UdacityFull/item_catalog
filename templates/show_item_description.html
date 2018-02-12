@@ -1,0 +1,10 @@
+<html>
+<div>
+    {% for i in items %}
+    <a {{url_for('Show_item_desc', category_name = i.category.name, item_name = i.name)}}>
+    <p>{% category.name %}</p>
+    <p>{% items.desc %}</p>
+        </a>
+     {% endfor %}
+</div>
+</html>
